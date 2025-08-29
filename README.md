@@ -19,22 +19,33 @@ A Rule Checker Module that processes a given piece of text and ensures it adhere
 ## Rules Implemented
 
 - Articles before nouns
+  
 Incorrect - "Turn shaft assembly."
+
 Correct -  "Turn the shaft assembly."
 
 - Active voice only
+  
 Incorrect - "The safety procedures are supplied by the manufacturer."
+
 Correct - "The manufacturer supplies the safety procedures."
 
 - One instruction per sentence
+  
 Incorrect - "Set the TEST switch and release the SHORT-CIRCUIT TEST switch."
+
 Correct-
+
 A. "Set the TEST switch."
+
 B. "Release the SHORT-CIRCUIT TEST switch."
 
 - Imperative form
+  
 Incorrect - "The test can be continued."
+
 Correct - "Continue the test."
 
 - Sentence length ≤ 20 words
+  
 Sentences longer than 20 words are flagged for readability
