@@ -1,49 +1,37 @@
 import re
-import spacy
-from typing import List, Dict
+import nltk
+from nltk import word_tokenize, pos_tag
 
-nlp = spacy.load("en_core_web_sm")
+# nltk.download("averaged_perceptron_tagger")
 
-class RuleChecker:
-    def __init__(self, autocorrect: bool = False):
-        self.autocorrect = autocorrect
+def tokenize(sentence):
+    return re.findall(r'\b\w+\b', sentence.lower())
 
-    def check_text(self, text: str) -> Dict:
-        doc = nlp(text)
-        results = []
+def has_article_before_noun(sentence):
+    tokens = tokenize(sentence)
+    tags = pos_tag(tokens)
+    for i, (word, tag) in enumerate(tags):
+        if tag in ['NN', 'NNS']:
+            if i == 0 or tags[i-1][0].lower() not in ['the', 'a', 'an', 'this', 'that', 'these', 'those']:
+                return True
+            return False
+    return True  # No noun found, so rule not violated
 
-        for idx, sent in enumerate(doc.sents, start=1):
-            sentence_text = sent.text.strip()
-            issues = []
-            corrected = sentence_text
 
-            # Rule 1: Articles before nouns
-            if re.match(r"^[A-Z][a-z]+ [a-z]+", sentence_text):  # naive
-                issues.append("Missing article before noun")
+if __name__ == "__main__":
 
-            # Rule 2: Passive voice detection
-            if any(tok.dep_ == "auxpass" for tok in sent):
-                issues.append("Sentence is in passive voice")
+    test_sentences = [
+        "The cat sat on the mat.",
+        "A dog barked loudly.",
+        "This is a test sentence.",
+        "Cat sat on the mat.",
+        "Dog barked loudly.",
+        "Is this a test sentence?"
+    ]
 
-            # Rule 3: Multiple instructions (check for multiple verbs joined by 'and')
-            verbs = [tok for tok in sent if tok.pos_ == "VERB"]
-            if "and" in sentence_text and len(verbs) > 1:
-                issues.append("Multiple instructions in one sentence")
-
-            # Rule 4: Imperative form (should start with VERB)
-            first_token = sent[0]
-            if first_token.pos_ != "VERB":
-                issues.append("Not in imperative form")
-
-            # Rule 5: Max sentence length
-            if len(sent) > 20:
-                issues.append("Sentence too long (>20 words)")
-
-            results.append({
-                "sentence_number": idx,
-                "original": sentence_text,
-                "issues": issues,
-                "corrected": corrected if self.autocorrect else None
-            })
-
-        return {"violations": results}
+    for sentence in test_sentences:
+        print(f"Testing: {sentence}")
+        if has_article_before_noun(sentence):
+            print(" - Rule violated: Missing article before noun")
+        else:
+            print(" - Rule passed")
