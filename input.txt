@@ -1,0 +1,40 @@
+Turn shaft assembly.
+Data module tells you how to operate unit.
+The safety procedures are supplied by the manufacturer.
+The main gear leg is held by the side stay.
+The circuits are connected by a switching relay.
+Set the TEST switch to the middle position and release the SHORT-CIRCUIT TEST switch.
+The test can be continued.
+Oil and grease are to be removed with a degreasing agent.
+When the light comes on, push the RESET button.
+Check the hydraulic fluid level before you start the engine.
+Pull the handle.
+Attach safety lock to door.
+This data module tells you how to operate the unit.
+The manufacturer supplies the safety procedures.
+The side stay holds the main gear leg.
+A switching relay connects the circuits.
+Remove oil and grease with a degreasing agent.
+Continue the test.
+Open the panel and disconnect the power cable.
+Disconnect the battery before doing maintenance.
+Attach the gear assembly to the main shaft.
+Ensure the air filter is clean before operation.
+The cooling system is maintained by qualified personnel.
+Adjust the hydraulic pressure to the specified level.
+The safety valve is controlled by the central unit.
+Check the battery voltage and recharge if necessary.
+Disconnect the power supply and wait for five minutes.
+Operate the control panel and monitor the indicator lights.
+The fuel lines are inspected regularly.
+Remove oil and grease using approved cleaning agents.
+The test switch can be activated when needed.
+Install the new software update following the instructions.
+The circuits are powered by the onboard generator.
+Replace the worn-out filter element promptly.
+The data logging module is connected by USB.
+Open the access panel and secure the cover firmly.
+The engine is started by pressing the ignition button.
+Measure the voltage across the terminals carefully.
+The fuel pump is operated by an electronic controller.
+Test the emergency stop mechanism before each use.
